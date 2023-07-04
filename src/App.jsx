@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import Calendar from 'react-calendar';
+import 'react-calendar/dist/Calendar.css'
 
 function NoticiaRow({ noticia }) {
   return (
@@ -50,10 +52,20 @@ function NoticiaTable({ noticias, filterText }) {
 
 function FilterableNoticiaTable({ noticias }) {
   const [filterText, setFilterText] = useState('');
+  const [date, setDate] = useState(new Date())
+  Number.prototype.pad = function(size) {
+    var s = String(this);
+    while (s.length < (size || 2)) {s = "0" + s;}
+    return s;
+  }  
+  var calendarDate=date.getFullYear().pad(4)+date.getMonth().pad(2)+date.getDate().pad(2)
   return (
     <div>
       <h1>Serina News</h1>
-      <SearchBar filterText={filterText} onFilterTextChange={setFilterText} />
+      <div className="calendar-container">
+        <Calendar onChange={setDate} value={date}/>
+      </div>
+      <SearchBar filterText={calendarDate} onFilterTextChange={setFilterText} />
       <NoticiaTable filterText={filterText} noticias={noticias} />
     </div>
   );
