@@ -21,7 +21,7 @@ export default function App() {
       <div className="calendar-container">
         <Calendar onChange={setDate} value={date} />
       </div>            
-      <FilterableNoticiaTable onChange={setParmDate} parmDate={date} />;
+      <FilterableNoticiaTable parmDate={date} />;
     </div>
   )
 }

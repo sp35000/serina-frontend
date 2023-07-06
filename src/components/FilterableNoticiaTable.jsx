@@ -3,7 +3,7 @@ import { useState } from 'react';
 import NoticiaTable from './NoticiaTable';
 import getNoticiasByDate from './GetNoticiasByDate';
 
-function FilterableNoticiaTable({ parmDate, setParmDate }) {
+function FilterableNoticiaTable({ parmDate }) {
     const [filterText, setFilterText] = useState('');
   
     Number.prototype.pad = function(size) {
@@ -13,9 +13,9 @@ function FilterableNoticiaTable({ parmDate, setParmDate }) {
     }  
   
     var calendarDate=parmDate.getFullYear().pad(4)+parmDate.getMonth().pad(2)+parmDate.getDate().pad(2)
-    // console.log(calendarDate);
-    // getNoticiasByDate(calendarDate);
+    console.log("calling getNoticiasByDate: "+calendarDate)
     var NEWS = getNoticiasByDate(calendarDate);
+    console.log(NEWS);
   
     return (
         <NoticiaTable filterText={filterText} noticias={NEWS} />

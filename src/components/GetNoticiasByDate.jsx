@@ -13,7 +13,7 @@ function getNoticiasByDate(parmDate) {
     // GET with Axios
     useEffect(() => {
       const fetchNoticia = async () => {
-          console.log('parmDate = '+parmDate);
+          console.log('Get Noticias - parmDate = '+parmDate);
           let response = await client.get(parmDate);
           setNoticias(response.data);
           console.log('DEBUG:');
@@ -21,7 +21,6 @@ function getNoticiasByDate(parmDate) {
       };
       fetchNoticia();
      }, []);
-    // console.log(noticias)
      return (
       noticias
      );
