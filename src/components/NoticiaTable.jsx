@@ -20,19 +20,7 @@ function NoticiaTable({ noticias, filterText }) {
     });
   
     return (
-      <table>
-        <thead>
-          <tr>
-            <th>Category</th>
-            <th>Title</th>
-            <th>Link</th>
-            <th>Initial Date</th>
-            <th>Final Date</th>
-            <th>Hashtag</th>
-          </tr>
-        </thead>
-        <tbody>{rows}</tbody>
-      </table>
+      <ul>{rows}</ul>
     );
   }
 
